@@ -1,0 +1,28 @@
+{
+  "name": "asmjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsx src/index.ts src/flux/main.fx",
+    "dev": "nodemon --exec tsx src/index.ts src/flux/main.fx",
+    "build": "node tsconf.js 1 && tsc -p tsconfig.json",
+    "test": "nodemon tests/ascii.js",
+    "prod": "npm run build && nodemon dist/ src/flux/test.fx",
+    "pkg" : "node tsconf.js && npm run build && pkg -t node18-linux-x64,node18-macos-x64,node18-win-x64 build/index.js -o build/flux",
+    "min": "npm run build && minimize-js build/ && nodemon dist/ src/flux/test.fx"
+  },
+  "author": "windyskies",
+  "type": "module",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "@types/node": "^20.11.10"
+  },
+  "dependencies": {
+    "bytenode": "^1.5.3",
+    "jsmin": "^1.0.1",
+    "minimize-js": "^1.4.0",
+    "nexe": "^1.1.6",
+    "pkg-fetch": "^3.5.2"
+  }
+}
