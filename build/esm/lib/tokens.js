@@ -13,6 +13,9 @@ export const token_t = new Map([
             keys: new Set([...ftypes])
         }]
 ]);
+export function cw(n) {
+    console.log(n);
+}
 export function findToken(keyword) {
     let c_token = null;
     token_t.forEach((e, _) => e.keys.has(keyword) ? c_token = _ : 0);

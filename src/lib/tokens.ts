@@ -19,6 +19,9 @@ export const token_t = new Map<string, t_interface>([
     }]
 ])
 
+export function cw(n : any) : void {
+    console.log(n);
+}
 export type Nullable<T> = T | null;
 
 export function findToken(keyword: string) : Nullable<string> {

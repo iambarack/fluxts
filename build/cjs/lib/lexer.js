@@ -37,7 +37,7 @@ const fs = __importStar(require("fs"));
 function lexer(filename) {
     return __awaiter(this, void 0, void 0, function* () {
         var data = fs.readFileSync(filename);
-        return data.toString().replace(/[\r \n]/g, "")
+        return data.toString().replace(/ /g, " ").replace(/[\r\n]/g, "")
             .split(/;/g).filter(e => e.length);
         //.map(l => l.split(""))
     });

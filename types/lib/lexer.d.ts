@@ -1,1 +1,1 @@
-export declare function lexer(filename: string): Promise<string[]>;
+export declare function lexer(filename: string): Promise<string[] | string>;

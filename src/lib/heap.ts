@@ -23,10 +23,13 @@ export default class Heap {
     }
 
     getNum(t:string) : number | null | undefined {
-        return this.#num.has(t) ? this.#num.get(t) : (console.log("Invalid variable name! [", t, "]"), null);
+        return this.#num.has(t) ? this.#num.get(t) : (console.log("Invalid variable name! ", t), process.exit());
+    }
+    hasNum(t: string): boolean {
+        return this.#num.has(t)
     }
     getLong(t: string): BigInt | null | undefined {
-        return this.#long.has(t) ? this.#long.get(t) : (console.log("Invalid variable name! [", t, "]"), null);
+        return this.#long.has(t) ? this.#long.get(t) : (console.log("Invalid variable name! ", t), process.exit());
     }
     heapInfo() {
         console.log("Heap {\n\tNums", this.#num, "\tLongs", this.#long, "\n}");

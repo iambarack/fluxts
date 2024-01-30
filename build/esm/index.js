@@ -9,31 +9,38 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import { lexer } from "./lib/lexer.js";
 import { findToken } from "./lib/tokens.js";
-import { ptypes, dtypes, ftypes } from "./lib/types.js";
 import { init } from "./util/helper.js";
+import parser from "./lib/parser.js";
 import Heap from "./lib/heap.js";
 // initialize the program.
 init(process.argv.length);
-console.log("types:", ptypes, dtypes, ftypes);
-// i. ctype main function (immediately invoked)
+//console.log("types:", ptypes, dtypes, ftypes);
+export const heap = new Heap();
 (function () {
     return __awaiter(this, void 0, void 0, function* () {
         //1. Call the lexer for [filename].fx
-        const FLUXts = yield lexer(process.argv[2] || "");
-        console.log(FLUXts);
+        const flux = yield lexer(process.argv[2] || ""); //console.log(flux);
         //2. Form a heap for all variables
-        const heap = new Heap();
-        heap.heapInfo();
+        //heap.heapInfo()
+        heap.saveNum("r0", 0);
         //&1. searching for tokens in lines
         let searchToken = "int";
         let kw = findToken(searchToken);
-        for (let i = 0; i < FLUXts.length; i++) {
-            const ln = FLUXts;
+        for (let i = 0; i < flux.length; i++) {
+            let ln = [flux[i]];
+            ln = ln.map(e => e.split(/=/g).map(e => e.split(':')))[0];
+            // if (flux[i].includes('=')) {
+            //     ln = ln.map(e => e.split('='))
+            // } if (flux[i].includes(':')) {
+            //     ln = ln.map((e,i) => e[ln.length - i-1].split(':'))
+            // }
+            parser(ln);
             //if includes = assignment operator/function
             //if includes ( or ) function operator seperate at {
             // if includes ? if else operator
             //tokenize using arr.reduce until hit a diff ascii char first token is first index then change tokens and call functions
         }
+        //console.log(flux);
         console.log("\nFreeing Memory, Goodbye!\n");
         heap.free();
     });

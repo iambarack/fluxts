@@ -16,7 +16,7 @@ const esm = {
         "outDir": "build/esm",
         "declaration": true,
         "declarationDir": "types",
-        "strict": true,
+        "strict": false,
         "alwaysStrict": false, // <- you can set this to false if your writing ESM
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true
@@ -47,7 +47,7 @@ const pkg = {
         "outDir": "build/cjs",
         "declaration": true,
         "declarationDir": "types",
-        "strict": true,
+        "strict": false,
         "alwaysStrict": false, // <- you can set this to false if your writing ESM
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true

@@ -1,10 +1,10 @@
 import * as fs from "fs"
 
-export async function lexer(filename: string): Promise<string[]> {
+export async function lexer(filename: string): Promise<string[] | string> {
     
     var data = fs.readFileSync(filename);
 
-    return data.toString().replace(/[\r \n]/g, "")
+    return data.toString().replace(/ /g, " ").replace(/[\r\n]/g, "")
         .split(/;/g).filter(e => e.length)
         //.map(l => l.split(""))
 

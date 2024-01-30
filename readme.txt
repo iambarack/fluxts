@@ -9,10 +9,12 @@
 # Stages:
 v0.001
 [x] Lexer
+[x] addition
+[x] basic variables
+[x] Variables
+[x] cw (stdout)
 [] Tokenizer
 [] Parser
-[] Variables
-[] cw (print)
 [] String
 [] Operations
 [] Binary for compiler

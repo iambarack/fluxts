@@ -6,6 +6,7 @@ export default class Heap {
     syncNum(t: string, v: number): void;
     syncLong(t: string, v: BigInt): void;
     getNum(t: string): number | null | undefined;
+    hasNum(t: string): boolean;
     getLong(t: string): BigInt | null | undefined;
     heapInfo(): void;
     free(): void;

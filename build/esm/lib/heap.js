@@ -30,10 +30,10 @@ class Heap {
         __classPrivateFieldGet(this, _Heap_long, "f").has(t) ? __classPrivateFieldGet(this, _Heap_long, "f").set(t, v) : console.log('Initialization error! Variable "', t, '" is not declared yet.');
     }
     getNum(t) {
-        return __classPrivateFieldGet(this, _Heap_num, "f").has(t) ? __classPrivateFieldGet(this, _Heap_num, "f").get(t) : (console.log("Invalid variable name! [", t, "]"), null);
+        return __classPrivateFieldGet(this, _Heap_num, "f").has(t) ? __classPrivateFieldGet(this, _Heap_num, "f").get(t) : (console.log("Invalid variable name! ", t), process.exit());
     }
     getLong(t) {
-        return __classPrivateFieldGet(this, _Heap_long, "f").has(t) ? __classPrivateFieldGet(this, _Heap_long, "f").get(t) : (console.log("Invalid variable name! [", t, "]"), null);
+        return __classPrivateFieldGet(this, _Heap_long, "f").has(t) ? __classPrivateFieldGet(this, _Heap_long, "f").get(t) : (console.log("Invalid variable name! ", t), process.exit());
     }
     heapInfo() {
         console.log("Heap {\n\tNums", __classPrivateFieldGet(this, _Heap_num, "f"), "\tLongs", __classPrivateFieldGet(this, _Heap_long, "f"), "\n}");
