@@ -13,7 +13,7 @@ const esm = {
         "esModuleInterop": false, // make false for esm
         // Project Structure
         "rootDir": "src",
-        "outDir": "dist",
+        "outDir": "build/esm",
         "declaration": true,
         "declarationDir": "types",
         "strict": true,
@@ -44,7 +44,7 @@ const pkg = {
         "noUncheckedIndexedAccess": true, //comment for esm
         "esModuleInterop": true, // make false for esm
         "rootDir": "src",
-        "outDir": "build",
+        "outDir": "build/cjs",
         "declaration": true,
         "declarationDir": "types",
         "strict": true,

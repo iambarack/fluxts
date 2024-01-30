@@ -6,11 +6,11 @@
   "scripts": {
     "start": "tsx src/index.ts src/flux/main.fx",
     "dev": "nodemon --exec tsx src/index.ts src/flux/main.fx",
-    "build": "node tsconf.js 1 && tsc -p tsconfig.json",
-    "test": "nodemon tests/ascii.js",
-    "prod": "npm run build && nodemon dist/ src/flux/test.fx",
-    "pkg" : "node tsconf.js && npm run build && pkg -t node18-linux-x64,node18-macos-x64,node18-win-x64 build/index.js -o build/flux",
-    "min": "npm run build && minimize-js build/ && nodemon dist/ src/flux/test.fx"
+    "build": "tsc -p tsconfig.json",
+    "prod": "node tsconf.js 1 && npm run build && nodemon build/esm src/flux/test.fx",
+    "pkg" : "node tsconf.js && npm run build && pkg -t node18-linux-x64,node18-macos-x64,node18-win-x64 build/cjs/index.js -o build/flux",
+    "_min": "npm run build && minimize-js build/esm && nodemon build/esm src/flux/test.fx",
+    "_test": "nodemon tests/ascii.js"
   },
   "author": "windyskies",
   "type": "module",
